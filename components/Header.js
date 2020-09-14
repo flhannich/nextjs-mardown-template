@@ -1,27 +1,32 @@
 import Link from 'next/link'
+import styles from './Header.module.scss'
 
 export default function Header() {
   return (
     <>
 
-      <header className="header">
+      <header className={styles.container}>
 
-        <nav className="nav" role="navigation" aria-label="main navigation">
+        <div className="container">
 
-          <Link href="/">
-            <a>Home</a>
-          </Link>
+          <nav className="nav" role="navigation" aria-label="main navigation">
 
-          <Link href="/about">
-            <a>About</a>
-          </Link>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
 
-          <Link href="/contact">
-            <a>Contact</a>
-          </Link>
+            <Link href="/about">
+              <a>About</a>
+            </Link>
 
-        </nav>
+            <Link href="/contact">
+              <a>Contact</a>
+            </Link>
 
+          </nav>
+
+        </div>
+        
       </header>
     </>
   )

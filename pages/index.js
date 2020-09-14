@@ -22,6 +22,8 @@ const Index = ({
       siteContacts={siteContacts}
     >
 
+    <div className="container">
+
       <h1>{frontmatter.title}</h1>
 
         <main>
@@ -29,6 +31,8 @@ const Index = ({
         </main>
 
         <ReactMarkdown source={markdownBody} />
+
+      </div>
 
       </Layout>
     </>

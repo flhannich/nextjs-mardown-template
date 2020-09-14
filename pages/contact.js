@@ -15,25 +15,29 @@ const Contact = ({
 
   return (
     <>
-    <Layout
-      pageTitle={siteTitle}
-      pageDescription={siteDescription}
-      siteContacts={siteContacts}
-    >
+      <Layout
+        pageTitle={siteTitle}
+        pageDescription={siteDescription}
+        siteContacts={siteContacts}
+      >
 
-      <h1>{frontmatter.title}</h1>
+        <div class="container">
 
-      <ReactMarkdown source={markdownBody} />
+          <h1>{frontmatter.title}</h1>
 
-      <adress>
-        <span>{siteContacts.name}</span><br />
-        <span>{siteContacts.street}</span><br />
-        <span>{siteContacts.postal}</span><br />
-        <span>{siteContacts.city}</span><br />
-        <a href={`tel:${siteContacts.phone}`}>{siteContacts.phone}</a><br />
-        <a href={`mailto:${siteContacts.mail}`}>{siteContacts.mail}</a>
-      </adress>
-      
+          <ReactMarkdown source={markdownBody} />
+
+          <adress>
+            <span>{siteContacts.name}</span><br />
+            <span>{siteContacts.street}</span><br />
+            <span>{siteContacts.postal}</span><br />
+            <span>{siteContacts.city}</span><br />
+            <a href={`tel:${siteContacts.phone}`}>{siteContacts.phone}</a><br />
+            <a href={`mailto:${siteContacts.mail}`}>{siteContacts.mail}</a>
+          </adress>
+
+        </div>
+
       </Layout>
     </>
   )

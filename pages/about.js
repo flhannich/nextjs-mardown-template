@@ -15,15 +15,19 @@ const About = ({
 
   return (
     <>
-    <Layout
-      pageTitle={siteTitle}
-      pageDescription={siteDescription}
-      siteContacts={siteContacts}
-    >
+      <Layout
+        pageTitle={siteTitle}
+        pageDescription={siteDescription}
+        siteContacts={siteContacts}
+      >
 
-      <h1>{frontmatter.title}</h1>
+        <div class="container">
 
-      <ReactMarkdown source={markdownBody} />
+          <h1>{frontmatter.title}</h1>
+
+          <ReactMarkdown source={markdownBody} />
+
+        </div>
 
       </Layout>
     </>
