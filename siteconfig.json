@@ -1,0 +1,13 @@
+{
+  "title": "Demo Blog",
+  "description": "This is a simple blog built with Next, easily deployable to Netlify!",
+  "contact": {
+    "name": "My Name",
+    "street": "Langestraße",
+    "postal": "90441",
+    "city": "Nürnberg",
+    "copyright": "Copyright 2020",
+    "phone": "172 493 383 12",
+    "mail": "info@mail.de"
+  }
+}
