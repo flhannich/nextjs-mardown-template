@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
 
 import Layout from '@components/Layout'
+import Image from '@components/Image'
 import getSlugs from '@utils/getSlugs'
 
 const Contact = ({
@@ -25,7 +26,12 @@ const Contact = ({
 
         <div className="container">
 
-          <ReactMarkdown source={markdownBody} />
+          <article>
+            <ReactMarkdown
+              source={markdownBody}
+              renderers={{ image: Image }}
+            />
+          </article>
 
           <address>
             <span>{siteContacts.name}</span><br />

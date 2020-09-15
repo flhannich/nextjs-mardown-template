@@ -1,6 +1,6 @@
 import Layout from '@components/Layout'
 import PostList from '@components/PostList'
-import Image from '@components/image'
+import Image from '@components/Image'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
@@ -28,16 +28,18 @@ const Index = ({
       siteContacts={siteContacts}
     >
 
-    <div className="container">
+      <div className="container">
 
         <main>
           <PostList posts={posts} />
         </main>
 
-        <ReactMarkdown
-          source={markdownBody}
-          renderers={{ image: Image }}
-        />
+        <article>
+          <ReactMarkdown
+            source={markdownBody}
+            renderers={{ image: Image }}
+          />
+        </article>
 
       </div>
 

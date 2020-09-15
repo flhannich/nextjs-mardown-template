@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
-import Image from '@components/image'
 
+import Image from '@components/Image'
 import Layout from '@components/Layout'
 import getSlugs from '@utils/getSlugs'
 
