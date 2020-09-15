@@ -17,14 +17,14 @@ const Index = ({
   return (
     <>
     <Layout
-      pageTitle={siteTitle}
-      pageDescription={siteDescription}
+      pageTitle={frontmatter.title}
+      pageDescription={frontmatter.description}
+      pageImage={frontmatter.image}
+      pageType={frontmatter.type}
       siteContacts={siteContacts}
     >
 
     <div className="container">
-
-      <h1>{frontmatter.title}</h1>
 
         <main>
           <PostList posts={posts} />
@@ -43,7 +43,7 @@ export default Index
 
 export async function getStaticProps() {
 
-  const content = await import(`../md/pages/index.md`)
+  const content = await import(`../md/home.md`)
   const config = await import(`../siteconfig.json`)
   const data = matter(content.default)
 

@@ -1,7 +1,9 @@
 ---
-title: 'The city of coffee-drinkers'
-author: 'Netlifriends'
-date: '2020-04-28'
+title: 'Demo Post 2'
+description: 'SEO Description'
+date: '2020-04-27'
+type: 'article' #SEO
+image: ../static/milkovi-seattle-unsplash.jpg
 ---
 
 ## What even is Seattle?

@@ -1,7 +1,9 @@
 ---
-title: 'The city of introverts'
-author: 'Netlifriends'
-date: '2020-04-29'
+title: 'Demo Post 3'
+description: 'SEO Description'
+date: '2020-04-27'
+type: 'article' #SEO
+image: ../static/milkovi-seattle-unsplash.jpg
 ---
 
 ## Are Seattleites dangerous?

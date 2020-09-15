@@ -18,16 +18,16 @@ export default function BlogPost ({
   return (
     <>
       <Layout
-        pageTitle={siteTitle}
-        pageDescription={siteDescription}
+        pageTitle={frontmatter.title}
+        pageDescription={frontmatter.description}
+        pageImage={frontmatter.image}
+        pageType={frontmatter.type}
         siteContacts={siteContacts}
       >
 
         <article>
 
           <div className="container">
-
-            <h1>{frontmatter.title}</h1>
 
             {frontmatter.hero_image && (
               <img

@@ -1,6 +1,9 @@
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 export default function PostList({ posts }) {
+
+  console.log(posts)
   if (posts === 'undefined') return null
 
   return (
@@ -10,14 +13,14 @@ export default function PostList({ posts }) {
         {posts &&
           posts.map((post) => {
             return (
-              
+
               <li key={post.slug}>
 
                 {post.frontmatter.date}: {` `}
 
                 <Link href={{ pathname: `/post/${post.slug}` }}>
 
-                  <a>{post?.frontmatter?.title}</a>
+                  <a>{post.frontmatter.title}</a>
 
                 </Link>
 

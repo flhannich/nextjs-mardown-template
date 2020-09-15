@@ -16,14 +16,14 @@ const About = ({
   return (
     <>
       <Layout
-        pageTitle={siteTitle}
-        pageDescription={siteDescription}
+        pageTitle={frontmatter.title}
+        pageDescription={frontmatter.description}
+        pageImage={frontmatter.image}
+        pageType={frontmatter.type}
         siteContacts={siteContacts}
       >
 
-        <div class="container">
-
-          <h1>{frontmatter.title}</h1>
+        <div className="container">
 
           <ReactMarkdown source={markdownBody} />
 
@@ -38,7 +38,7 @@ export default About
 
 export async function getStaticProps() {
 
-  const content = await import(`../md/pages/about.md`)
+  const content = await import(`../md/about.md`)
   const config = await import(`../siteconfig.json`)
   const data = matter(content.default)
 

@@ -37,14 +37,14 @@ export default function Footer({siteContacts}) {
 
           </nav>
 
-          <adress>
+          <address>
             <span>{siteContacts.name}</span><br />
             <span>{siteContacts.street}</span><br />
             <span>{siteContacts.postal}</span><br />
             <span>{siteContacts.city}</span><br />
             <a href={`tel:${siteContacts.phone}`}>{siteContacts.phone}</a><br />
             <a href={`mailto:${siteContacts.mail}`}>{siteContacts.mail}</a>
-          </adress>
+          </address>
 
         </div>
 

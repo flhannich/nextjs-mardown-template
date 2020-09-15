@@ -16,25 +16,25 @@ const Contact = ({
   return (
     <>
       <Layout
-        pageTitle={siteTitle}
-        pageDescription={siteDescription}
+        pageTitle={frontmatter.title}
+        pageDescription={frontmatter.description}
+        pageImage={frontmatter.image}
+        pageType={frontmatter.type}
         siteContacts={siteContacts}
       >
 
-        <div class="container">
-
-          <h1>{frontmatter.title}</h1>
+        <div className="container">
 
           <ReactMarkdown source={markdownBody} />
 
-          <adress>
+          <address>
             <span>{siteContacts.name}</span><br />
             <span>{siteContacts.street}</span><br />
             <span>{siteContacts.postal}</span><br />
             <span>{siteContacts.city}</span><br />
             <a href={`tel:${siteContacts.phone}`}>{siteContacts.phone}</a><br />
             <a href={`mailto:${siteContacts.mail}`}>{siteContacts.mail}</a>
-          </adress>
+          </address>
 
         </div>
 
@@ -47,7 +47,7 @@ export default Contact
 
 export async function getStaticProps() {
 
-  const content = await import(`../md/pages/contact.md`)
+  const content = await import(`../md/contact.md`)
   const config = await import(`../siteconfig.json`)
   const data = matter(content.default)
 
