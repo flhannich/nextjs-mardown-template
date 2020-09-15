@@ -3,7 +3,6 @@ import ReactMarkdown from 'react-markdown'
 
 export default function PostList({ posts }) {
 
-  console.log(posts)
   if (posts === 'undefined') return null
 
   return (

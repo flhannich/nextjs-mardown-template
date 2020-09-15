@@ -1,9 +1,13 @@
 import Layout from '@components/Layout'
 import PostList from '@components/PostList'
+import Image from '@components/image'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
 import getPosts from '@utils/getPosts'
+
+
+
 
 const Index = ({
     siteTitle,
@@ -30,7 +34,10 @@ const Index = ({
           <PostList posts={posts} />
         </main>
 
-        <ReactMarkdown source={markdownBody} />
+        <ReactMarkdown
+          source={markdownBody}
+          renderers={{ image: Image }}
+        />
 
       </div>
 
