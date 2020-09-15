@@ -29,6 +29,9 @@ export default function BlogPost ({
         <article>
 
           <div className="container">
+          <header>
+            <h1>{frontmatter.title}</h1>
+          </header>
 
             {frontmatter.hero_image && (
               <img
@@ -37,12 +40,15 @@ export default function BlogPost ({
                 alt={frontmatter.title}
               />
             )}
+            <div class="grid">
+            <article className="small-12 medium-8 large-6 large-push-1 medium-push-1 small-push-0 pa5">
+              <ReactMarkdown
+                source={markdownBody}
+                renderers={{ image: Image }}
+              />
 
-            <ReactMarkdown
-              source={markdownBody}
-              renderers={{ image: Image }}
-            />
-
+            </article>
+            </div>
           </div>
 
         </article>

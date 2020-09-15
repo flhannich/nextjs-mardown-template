@@ -16,15 +16,17 @@ $grid-columns: 12;
 $gutters-normal: $line-height;
 $gutters-small: $line-height / 1.62;
 
+$spacer-scale: 1.62;
+
+
 
 /*
   Breakpoints
 */
 
-$mobile: 415px;
-$tablet: 768px;
-$notebook: 1280px;
-$desktop: 1440px;
+$small: 650px;
+$medium: 1024px;
+$large: 1260px;
 
 
 /*
@@ -38,10 +40,8 @@ $font-color: #181818
   /*
     Breakpoints
   */
-  --mobile: #{$mobile};
-  --tablet: #{$tablet};
-  --notebook: #{$notebook};
-  --desktop: #{$desktop};
+  --small: #{$small};
+  --medium: #{$medium};
 
   /*
     Colors Fonts
