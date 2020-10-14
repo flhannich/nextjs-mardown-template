@@ -28,10 +28,11 @@ export default function BlogPost ({
 
         <article>
 
-          <div className="container">
-          <header>
-            <h1>{frontmatter.title}</h1>
-          </header>
+          <div className="grid">
+
+            <header className="small-12 medium-8 large-12 pb5">
+              <h1>{frontmatter.title}</h1>
+            </header>
 
             {frontmatter.hero_image && (
               <img
@@ -40,15 +41,14 @@ export default function BlogPost ({
                 alt={frontmatter.title}
               />
             )}
-            <div class="grid">
-            <article className="small-12 medium-8 large-6 large-push-1 medium-push-1 small-push-0 pa5">
+
+            <article className="small-12 medium-8 large-6">
               <ReactMarkdown
                 source={markdownBody}
                 renderers={{ image: Image }}
               />
-
             </article>
-            </div>
+
           </div>
 
         </article>
@@ -62,7 +62,7 @@ export default function BlogPost ({
 export async function getStaticProps({ ...ctx }) {
   const { postname } = ctx.params
 
-  const content = await import(`../../md/posts/${postname}.md`)
+  const content = await import(`../../md/news/${postname}.md`)
   const config = await import(`../../siteconfig.json`)
   const data = matter(content.default)
 
@@ -81,9 +81,9 @@ export async function getStaticPaths() {
 
   const blogSlugs = ((context) => {
     return getSlugs(context)
-  })(require.context('../../md/posts', true, /\.md$/))
+  })(require.context('../../md/news', true, /\.md$/))
 
-  const paths = blogSlugs.map((slug) => `/post/${slug}`)
+  const paths = blogSlugs.map((slug) => `/news/${slug}`)
 
   return {
     paths, // An array of path names, and any params

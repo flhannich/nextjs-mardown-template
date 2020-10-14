@@ -1,30 +1,24 @@
 import Link from 'next/link'
-import styles from './Footer.module.scss'
 
 
 export default function Footer({siteContacts}) {
 
   return (
     <>
-      <footer className={styles.container}>
+      <footer>
 
-        <div className="container">
+        <div className="grid pt7">
 
-          <div className={styles.hook}>
-
-            <h3>Waistcoat keffiyeh activated charcoal leggings YOLO tofu messenger bag 8-bit</h3>
-            <p>Footer hook content</p>
-
-            <Link href="/contact">
-              <a>Write us</a>
+          <div className="brand small-12 medium-12 large-5">
+            <Link href="/">
+              <a>Brand</a>
             </Link>
-
           </div>
 
-          <nav className="nav" role="navigation" aria-label="main navigation">
+          <nav className="small-12 medium-12 large-4 pb5" role="navigation" aria-label="main navigation">
 
-            <Link href="/">
-              <a>Home</a>
+            <Link href="/news">
+              <a>News</a>
             </Link>
 
             <Link href="/about">
@@ -37,7 +31,7 @@ export default function Footer({siteContacts}) {
 
           </nav>
 
-          <address>
+          <address className="small-12 medium-12 large-3">
             <span>{siteContacts.name}</span><br />
             <span>{siteContacts.street}</span><br />
             <span>{siteContacts.postal}</span><br />

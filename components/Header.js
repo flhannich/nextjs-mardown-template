@@ -1,18 +1,26 @@
 import Link from 'next/link'
-import styles from './Header.module.scss'
 
 export default function Header() {
   return (
     <>
 
-      <header className={styles.container}>
+      <header>
 
-        <div className="container">
+        <div className="grid pt4 pb4">
 
-          <nav className="nav" role="navigation" aria-label="main navigation">
-
+          <div className="brand small-12 medium-12 large-6">
             <Link href="/">
-              <a>Home</a>
+              <a>Brand</a>
+            </Link>
+          </div>
+
+          <nav
+            className="small-12 medium-12 large-6"
+            role="navigation"
+            aria-label="main navigation">
+
+            <Link href="/news">
+              <a>News</a>
             </Link>
 
             <Link href="/about">
@@ -26,7 +34,7 @@ export default function Header() {
           </nav>
 
         </div>
-        
+
       </header>
     </>
   )

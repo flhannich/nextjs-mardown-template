@@ -1,98 +1,118 @@
 .container {
-  max-width: $large;
-  padding: 0 20px;
-  margin: 0 auto;
 }
 
+// Grid base and Grid Settings
 .grid {
+  max-width: $desktop;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 9%;
   display: flex;
   flex-flow: wrap;
+  align-items: flex-start;
+  &.grid--fullwidth {
+    max-width: 100%;
+    padding: 0;
+  }
   &.grid--reverse {
     flex-direction: row-reverse;
   }
   &.grid--center {
     align-items: center;
   }
-}
-
-
-@for $i from 1 through 12 {
-  .pa#{$i} {
-    padding: pow($i, $spacer-scale) * 1px;
-  }
-  .pt#{$i} {
-    padding-top: pow($i, $spacer-scale) * 1px;
-  }
-  .pb#{$i} {
-    padding-bottom: pow($i, $spacer-scale) * 1px;
-  }
-  .pl#{$i} {
-    padding-left: pow($i, $spacer-scale) * 1px;
-  }
-  .pr#{$i} {
-    padding-right: pow($i, $spacer-scale) * 1px;
-  }
-
-  .ma#{$i} {
-    margin: pow($i, $spacer-scale) * 1px;
-  }
-  .mt#{$i} {
-    margin-top: pow($i, $spacer-scale) * 1px;
-  }
-  .mb#{$i} {
-    margin-bottom: pow($i, $spacer-scale) * 1px;
-  }
-  .ml#{$i} {
-    margin-left: pow($i, $spacer-scale) * 1px;
-  }
-  .mr#{$i} {
-    margin-right: pow($i, $spacer-scale) * 1px;
+  &.grid--publications {
+    max-width: $tablet;
   }
 }
 
+@media(max-width: $tablet) {
+  .grid {
+    padding: 0 24px;
+  }
+}
 
 @for $i from 1 through $grid-columns {
   .grid {
     & > .small-#{$i} {
       width: 100% / $grid-columns  * $i;
     }
-    & > .small-push-#{$i} {
+    & > .small-offset-#{$i} {
       margin-left: 100% / $grid-columns * $i;
-    }
-    & > .small-pull-#{$i} {
-      margin-right: 100% / $grid-columns * $i;
     }
   }
 }
 
-@media(min-width: $small) {
+@media(min-width: $mobile) {
   @for $i from 1 through $grid-columns {
     .grid {
       & > .medium-#{$i} {
         width: 100% / $grid-columns  * $i;
       }
-      & > .medium-push-#{$i} {
+      & > .medium-offset-#{$i} {
         margin-left: 100% / $grid-columns * $i;
-      }
-      & > .medium-pull-#{$i} {
-        margin-right: 100% / $grid-columns * $i;
       }
     }
   }
 }
 
-@media(min-width: $medium) {
+@media(min-width: $tablet) {
   @for $i from 1 through $grid-columns {
     .grid {
       & > .large-#{$i} {
         width: 100% / $grid-columns  * $i;
       }
-      & > .large-push-#{$i} {
+      & > .large-offset-#{$i} {
         margin-left: 100% / $grid-columns * $i;
       }
-      & > .large-pull-#{$i} {
-        margin-right: 100% / $grid-columns * $i;
-      }
     }
+  }
+}
+
+@for $i from 1 through length($spacers) {
+  $s: nth($spacers, $i);
+  .pa#{$i} {
+    padding: $s;
+  }
+  .pt#{$i} {
+    padding-top: $s;
+  }
+  .pr#{$i} {
+    padding-right: $s;
+  }
+  .pb#{$i} {
+    padding-bottom: $s;
+  }
+  .pl#{$i} {
+    padding-left: $s;
+  }
+  .ma#{$i} {
+    margin: $s;
+  }
+  .mt#{$i} {
+    margin-top: $s;
+  }
+  .mr#{$i} {
+    margin-right: $s;
+  }
+  .mb#{$i} {
+    margin-bottom: $s;
+  }
+  .ml#{$i} {
+    margin-left: $s;
+  }
+  .n-ma#{$i} {
+    margin: -$s;
+  }
+  .n-mt#{$i} {
+    margin-top: -$s;
+  }
+  .n-mr#{$i} {
+    margin-right: -$s;
+  }
+  .n-mb#{$i} {
+    margin-bottom: -$s;
+  }
+  .n-ml#{$i} {
+    margin-left: -$s;
   }
 }

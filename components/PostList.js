@@ -1,33 +1,60 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
+import { useState } from 'react'
 
-export default function PostList({ posts }) {
+export default function PostList({ posts, limit }) {
+  let int;
+  let add = 1;
 
-  if (posts === 'undefined') return null
+  (limit !== undefined)
+  ? int = parseInt(limit)
+  : int = Infinity
+
+  const [max, setMax] = useState(int);
+
+  const postList = posts.slice(0, max);
 
   return (
     <div>
-      {!posts && <div>No posts!</div>}
-      <ul>
+
+      {!posts &&
+        <div>
+          Sorry, there are no posts!
+        </div>
+      }
+
         {posts &&
-          posts.map((post) => {
-            return (
 
-              <li key={post.slug}>
+          <ul>
 
-                {post.frontmatter.date}: {` `}
+            { postList.map((post) => {
+              return (
 
-                <Link href={{ pathname: `/post/${post.slug}` }}>
+                <li key={post.slug}>
 
-                  <a>{post.frontmatter.title}</a>
+                  {post.frontmatter.date}: {` `}
 
-                </Link>
+                  <Link href={{ pathname: `/news/${post.slug}` }}>
 
-              </li>
+                    <a>{post.frontmatter.title}</a>
 
-            )
-          })}
-      </ul>
+                  </Link>
+
+                </li>
+
+              )
+            }) }
+
+          </ul>
+
+        }
+
+        {limit && max < posts.length &&
+
+          <button onClick={() => setMax(max + add)}>Show More</button>
+
+        }
+
     </div>
   )
 }

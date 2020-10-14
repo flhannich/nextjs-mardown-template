@@ -30,7 +30,7 @@ export default function Layout({
 
       <Header />
 
-      <main>{children}</main>
+      {children}
 
       <Footer siteContacts = {siteContacts} />
 

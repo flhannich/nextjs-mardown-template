@@ -1,47 +1,76 @@
-import Layout from '@components/Layout'
 import PostList from '@components/PostList'
+import Layout from '@components/Layout'
 import Image from '@components/Image'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
 import getPosts from '@utils/getPosts'
 
-
-
-
 const Index = ({
-    siteTitle,
-    siteDescription,
     siteContacts,
-    frontmatter,
-    markdownBody,
-    posts
+    home,
+    about,
+    newsList
   }) => {
-
+    console.log(about);
   return (
     <>
     <Layout
-      pageTitle={frontmatter.title}
-      pageDescription={frontmatter.description}
-      pageImage={frontmatter.image}
-      pageType={frontmatter.type}
+      pageTitle={home.frontmatter.title}
+      pageDescription={home.frontmatter.description}
+      pageImage={home.frontmatter.image}
+      pageType={home.frontmatter.type}
       siteContacts={siteContacts}
     >
 
-      <div className="container">
+    <main className="home">
 
-        <main>
-          <PostList posts={posts} />
-        </main>
+      <header>
 
-        <article>
-          <ReactMarkdown
-            source={markdownBody}
-            renderers={{ image: Image }}
-          />
-        </article>
+        <div className="grid pb7 pt6">
 
-      </div>
+          <div className="large-12">
+            <ReactMarkdown
+              source={home.markdownBody}
+              renderers={{ image: Image }}
+            />
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <section>
+
+        <div className="grid pb6 pt6">
+
+          <div className="large-12">
+            <h2>{about.frontmatter.title}</h2>
+            {about.frontmatter.description}
+          </div>
+
+        </div>
+
+      </section>
+
+      <section>
+
+        <div className="grid">
+
+          <div className="large-12">
+            <PostList
+              posts={newsList}
+              limit='2'
+            />
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
 
       </Layout>
     </>
@@ -52,22 +81,28 @@ export default Index
 
 export async function getStaticProps() {
 
-  const content = await import(`../md/home.md`)
+  const home = await import(`../md/home.md`)
+  const about = await import(`../md/sections/about.md`)
   const config = await import(`../siteconfig.json`)
-  const data = matter(content.default)
+  const dataHome = matter(home.default)
+  const dataAbout = matter(about.default)
 
-  const posts = ((context) => {
+  const newsList = ((context) => {
     return getPosts(context)
-  })(require.context('../md/posts', true, /\.md$/))
+  })(require.context('../md/news', true, /\.md$/))
 
   return {
     props: {
-      posts,
-      siteTitle: config.title,
-      siteDescription: config.description,
+      newsList,
       siteContacts: config.contact,
-      frontmatter: data.data,
-      markdownBody: data.content,
+      home: {
+        frontmatter: dataHome.data,
+        markdownBody: dataHome.content,
+      },
+      about: {
+        frontmatter: dataAbout.data,
+        markdownBody: dataAbout.content,
+      }
     },
   }
 }

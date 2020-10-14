@@ -2,31 +2,28 @@
   Font Settings
 */
 
-$base-font-size: 15px;
-$base-line-height: 1.85;
-$font-scale: 1.33;
-
-$line-height: $base-font-size * $base-line-height;
+$base-font-size: 16px;
+$base-line-height: 1.5;
 
 /*
   Grid
 */
 
 $grid-columns: 12;
-$gutters-normal: $line-height;
-$gutters-small: $line-height / 1.62;
+$gutters-normal: 64px;
+$gutters-small: 32px;
 
-$spacer-scale: 1.62;
-
+$spacers: 4px, 8px, 16px, 24px, 32px, 64px, 96px, 128px, 168px, 208px;
 
 
 /*
   Breakpoints
 */
 
-$small: 650px;
-$medium: 1024px;
-$large: 1260px;
+$mobile: 415px;
+$tablet: 1024px;
+$notebook: 1280px;
+$desktop: 1800px;
 
 
 /*
@@ -40,14 +37,16 @@ $font-color: #181818
   /*
     Breakpoints
   */
-  --small: #{$small};
-  --medium: #{$medium};
+  --mobile: #{$mobile};
+  --tablet: #{$tablet};
+  --notebook: #{$notebook};
+  --desktop: #{$desktop};
 
   /*
     Colors Fonts
   */
-  --font-color: #{$font-color};
-  --font-standard: #{rgba( $font-color, .85 )};
+  --font-dark: #{$font-color};
+  --font-normal: #{rgba( $font-color, .85 )};
   --font-light: #{rgba( $font-color, .74 )};
   --font-lightest: #{rgba( $font-color, .54 )};
 
@@ -79,45 +78,24 @@ $font-color: #181818
 
 
   /*
+    Shadows
+  */
+  --shadow: 0 2px 10px rgba(0, 0, 0, .08);
+
+
+  /*
     Font Settings
   */
   --base-font-size: #{$base-font-size};
   --base-line-height: #{$base-line-height};
-  --font-scale: #{$font-scale};
-
-
-  --text-width--narrow: #{$line-height * 16};
-  --text-width--input: #{$line-height * 19};
-  --text-width--normal: #{$line-height * 24};
-  --text-width--wide: #{$line-height * 31};
-
-  --spacer-xxxs: #{$line-height / 6.86};
-  --spacer-xxs: #{$line-height / 4.24};
-  --spacer-xs: #{$line-height / 2.62};
-  --spacer-s: #{$line-height / 1.62};
-  --spacer-m: #{$line-height};
-  --spacer-l: #{$line-height * 1.62};
-  --spacer-xl: #{$line-height * 2.62};
-  --spacer-xxl: #{$line-height * 4.24};
-  --spacer-xxxl: #{$line-height * 6.86};
 }
 
 
 
-@media(max-width: 414px) {
+@media(max-width: $mobile) {
   :root {
 
     --base-font-size: 15px;
-
-    --spacer-xxxs: #{$line-height / 11.1};
-    --spacer-xxs: #{$line-height / 6.86};
-    --spacer-xs: #{$line-height / 4.24};
-    --spacer-s: #{$line-height / 2.62};
-    --spacer-m: #{$line-height / 1.62};
-    --spacer-l: #{$line-height};
-    --spacer-xl: #{$line-height * 1.62};
-    --spacer-xxl: #{$line-height * 2.62};
-    --spacer-xxxl: #{$line-height * 4.24};
 
   }
 }

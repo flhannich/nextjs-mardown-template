@@ -1,32 +1,36 @@
-
+body {
+  font-family: '', sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+  color: var(--font-color);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
 
 h1 {
-  font-size: $base-font-size * $font-scale * 3;
-  line-height: $line-height * 2;
+
 }
 
 h2 {
-  font-size: $base-font-size * $font-scale * 2;
-  line-height: $line-height * 1.5;
+
 }
 
 h3 {
-  font-size: $base-font-size * $font-scale * 1.5;
-  line-height: $line-height;
+
 }
 
 h4 {
-  font-size: $base-font-size * $font-scale;
-  line-height: $line-height;
+
 }
 
 h5 {
-  font-size: $base-font-size * $font-scale / 1.5;
-  line-height: $line-height;
+
 }
 
 h6 {
-  font-size: $base-font-size;
+
 }
 
 
@@ -47,22 +51,33 @@ p {
   }
 }
 
+ul {
+  li {
+    list-style: disc;
+    list-style-position: inside;
+  }
+}
 
 label {
-  font-size: $line-height
+
 }
 
 input[type=text], input[type=mail], textarea {
-  font-size: $base-font-size;
+
 }
 
-
 input[type=submit] {
-  font-size: $base-font-size;
+
+}
+
+button {
+
 }
 
 blockquote {
-  font-size: $base-font-size * $font-scale;
-  line-height: $base-line-height / ($font-scale * 1.125);
-  hyphens: auto;
+
+}
+
+cite {
+
 }

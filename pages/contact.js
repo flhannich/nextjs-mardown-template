@@ -24,7 +24,7 @@ const Contact = ({
         siteContacts={siteContacts}
       >
 
-        <div className="container">
+        <div className="grid">
 
           <article>
             <ReactMarkdown
