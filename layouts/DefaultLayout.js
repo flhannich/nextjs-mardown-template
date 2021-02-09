@@ -1,5 +1,8 @@
 import Head from 'next/head'
+import { useEffect } from 'react'
 import { Header, Footer, Accessibility } from '../components'
+
+import { pageTransition } from '../utils/helpers'
 
 const DefaultLayout = ({
     children,
@@ -9,6 +12,11 @@ const DefaultLayout = ({
     pageImage,
     pageType,
     ...props }) => {
+    
+      
+    useEffect(() => {
+      pageTransition()
+    }, []);
 
   return (
     <>
