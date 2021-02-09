@@ -8,7 +8,7 @@ import { DefaultLayout } from '../../layouts'
 import getSlugs from '../../utils/getSlugs'
 
 
-export default function BlogPost ({
+export default function Post ({
     siteTitle,
     siteDescription,
     siteContacts,
