@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 
-export default function PostList({ posts }) {
+const PostList = ({ posts }) => {
 
   if (posts === 'undefined') return null
 
@@ -31,3 +31,5 @@ export default function PostList({ posts }) {
     </div>
   )
 }
+
+export default PostList

@@ -1,11 +1,10 @@
 import Link from 'next/link'
-import styles from './Header.module.scss'
 
-export default function Header() {
+const Header = () => {
   return (
     <>
 
-      <header className={styles.container}>
+      <header className="">
 
         <div className="container">
 
@@ -31,3 +30,5 @@ export default function Header() {
     </>
   )
 }
+
+export default Header;

@@ -1,16 +1,15 @@
 import Link from 'next/link'
-import styles from './Footer.module.scss'
 
 
-export default function Footer({siteContacts}) {
+const Footer = ({siteContacts}) => {
 
   return (
     <>
-      <footer className={styles.container}>
+      <footer className="">
 
         <div className="container">
 
-          <div className={styles.hook}>
+          <div className="">
 
             <h3>Waistcoat keffiyeh activated charcoal leggings YOLO tofu messenger bag 8-bit</h3>
             <p>Footer hook content</p>
@@ -54,3 +53,5 @@ export default function Footer({siteContacts}) {
   )
 
 }
+
+export default Footer;

@@ -1,13 +1,10 @@
-import Layout from '@components/Layout'
-import PostList from '@components/PostList'
-import Image from '@components/Image'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-import getPosts from '@utils/getPosts'
+import { DefaultLayout } from '../layouts/'
+import { PostList, Image } from '../components/'
 
-
-
+import getPosts from '../utils/getPosts'
 
 const Index = ({
     siteTitle,
@@ -20,7 +17,7 @@ const Index = ({
 
   return (
     <>
-    <Layout
+    <DefaultLayout
       pageTitle={frontmatter.title}
       pageDescription={frontmatter.description}
       pageImage={frontmatter.image}
@@ -43,7 +40,7 @@ const Index = ({
 
       </div>
 
-      </Layout>
+      </DefaultLayout>
     </>
   )
 }

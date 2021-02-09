@@ -1,16 +1,14 @@
 import Head from 'next/head'
-import Header from './Header'
-import Footer from './Footer'
+import { Header, Footer } from '../components'
 
-export default function Layout({
+const DefaultLayout = ({
     children,
     siteContacts,
     pageTitle,
     pageDescription,
     pageImage,
     pageType,
-    ...props })
-  {
+    ...props }) => {
 
   return (
     <>
@@ -37,3 +35,5 @@ export default function Layout({
     </>
   )
 }
+
+export default DefaultLayout;

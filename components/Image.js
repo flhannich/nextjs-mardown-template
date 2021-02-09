@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import * as utils from '@utils/helpers/lazyLoad'
+import * as utils from '../utils/helpers/lazyLoad'
 
-export default function Image({ alt, src }) {
+const Image = ({ alt, src }) => {
 
   useEffect(() => {
     utils.lazyLoad();
@@ -22,3 +22,5 @@ export default function Image({ alt, src }) {
 
   );
 };
+
+export default Image;
