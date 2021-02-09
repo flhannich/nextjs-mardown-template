@@ -13,16 +13,32 @@ const Image = ({ placeholder, src, srcset, alt }) => {
       if (entry.isIntersecting) {
   
           let image = entry.target;
-  
-          image.setAttribute('src', image.dataset.src);
-          image.removeAttribute('data-src');
+                    
+          if(image.dataset.src !== undefined) {
+
+            let src = image.dataset.src;
+            
+            let path = src.substr(0, image.dataset.src.lastIndexOf('/'));
+            let mime = src.split('.').pop();
+            let filename = src.split('/').pop().split('.')[0];
           
-          if(image.dataset.srcset) {
-          
-            image.setAttribute('srcset', image.dataset.srcset);
-            image.removeAttribute('data-srcset');
-          
+            image.setAttribute('src', image.dataset.src);
+            image.removeAttribute('data-src');
+            
+            image.setAttribute('srcset', 
+              path + '/' + filename + '@0.3' + '.' + mime  + ' 780w,' +
+              path + '/' + filename + '@0.6' + '.' + mime  + ' 1280w,' +
+              path + '/' + filename + '@1' + '.' + mime  + ' 1680w'
+            );
+            
           }
+         
+          // if(image.dataset.srcset) {
+            
+            // image.setAttribute('srcset', image.dataset.srcset);
+            // image.removeAttribute('data-srcset');
+          
+          // }
           
           node.current.classList.add('has-loaded');
           observer.unobserve(image);
@@ -54,7 +70,7 @@ const Image = ({ placeholder, src, srcset, alt }) => {
 
   return (
 
-    <div 
+    <span 
       className="image-holder"
       ref={node}
     >
@@ -66,7 +82,7 @@ const Image = ({ placeholder, src, srcset, alt }) => {
         alt={alt}
       />
 
-    </div>
+    </span>
 
   );
 };
