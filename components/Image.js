@@ -18,7 +18,7 @@ const Image = ({ placeholder, src, srcset, alt }) => {
 
             let src = image.dataset.src;
             
-            let path = src.substr(0, image.dataset.src.lastIndexOf('/'));
+            let path = src.substr(0, src.lastIndexOf('/'));
             let mime = src.split('.').pop();
             let filename = src.split('/').pop().split('.')[0];
           
