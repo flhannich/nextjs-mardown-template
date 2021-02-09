@@ -9,17 +9,6 @@ const Footer = ({siteContacts}) => {
 
         <div className="container">
 
-          <div className="">
-
-            <h3>Waistcoat keffiyeh activated charcoal leggings YOLO tofu messenger bag 8-bit</h3>
-            <p>Footer hook content</p>
-
-            <Link href="/contact">
-              <a>Write us</a>
-            </Link>
-
-          </div>
-
           <nav className="nav" role="navigation" aria-label="main navigation">
 
             <Link href="/">
