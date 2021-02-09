@@ -4,3 +4,5 @@ export { default as Header } from './Header';
 export { default as PostList } from './PostList';
 
 export { default as Image } from './Image';
+
+export { default as Accessibility } from './helpers/Accessibility';
