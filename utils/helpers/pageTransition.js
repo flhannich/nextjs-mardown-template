@@ -1,4 +1,4 @@
-export default function pageTransition() {
+const pageTransition = () => {
 
   var body = document.querySelector('body');
 
@@ -73,3 +73,5 @@ export default function pageTransition() {
     body.classList.remove('is-leaving', 'has-left');
 
   }
+
+  export default pageTransition;
