@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react'
-import { Header, Footer, Accessibility } from '../components'
+import { Header, Footer, AccessibilityButton } from '../components'
 
 import { pageTransition, scrollTrigger, lazyLoad } from '../utils/helpers'
 
@@ -36,7 +36,7 @@ const DefaultLayout = ({
 
       </Head>
       
-      <Accessibility 
+      <AccessibilityButton 
         anchor={'mainContent'}
       />
       

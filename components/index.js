@@ -6,4 +6,4 @@ export { default as ProjectList } from './ProjectList';
 
 export { default as Image } from './Image';
 
-export { default as Accessibility } from './helpers/Accessibility';
+export { default as AccessibilityButton } from './helpers/AccessibilityButton';
