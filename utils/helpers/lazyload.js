@@ -1,62 +1,46 @@
 
-export function lazyLoad(){
+const lazyLoad = () => {
+    
+    let callback = function (entries, observer) {
+  
+      entries.forEach (function (entry) {
+  
+      if (entry.isIntersecting) {
+  
+          let image = entry.target;
 
-  var elem, className, time
-
-  elem = document.querySelectorAll('[data-src]');
-
-  var enteredScreenClassName = 'has-entered'
-  var lazyClassName = 'is-lazy';
-  var loadedClassName = 'has-loaded';
-  var pause = 10;
-
-    var initialTimer;
-
-
-    if (initialTimer) {
-      clearTimeout(initialTimer);
-    }
-
-    initialTimer = setTimeout(function() {
-
-      var scrollPos = window.pageYOffset;
-      var windowHeight = window.innerHeight;
-
-      elem.forEach((item, i) => {
-
-        var itemPos =  scrollPos + item.getBoundingClientRect().top;
-
-        item.parentNode.classList.add(lazyClassName);
-
-        if(itemPos < scrollPos + (windowHeight / 1.22)) {
-
-          item.parentNode.classList.add(enteredScreenClassName);
-
+          image.setAttribute('src', image.dataset.src);
+          image.removeAttribute('data-src');
+          
+          if(image.dataset.srcset) {
+          
+            image.setAttribute('srcset', image.dataset.srcset);
+            image.removeAttribute('data-srcset');
+          
+          }
+          
+          image.classList.add('has-loaded');
+          observer.unobserve(image);
         }
-
-        if(itemPos < scrollPos + (windowHeight * 2) && item.dataset.src !== undefined) {
-
-            item.setAttribute('src', item.dataset.src);
-            item.removeAttribute('data-src');
-
-            if(item.dataset.srcset) {
-
-              item.setAttribute('srcset', item.dataset.srcset);
-              item.removeAttribute('data-srcset');
-
-            }
-
-
-            item.onload = function() {
-              item.parentNode.classList.add(loadedClassName);
-            }
-
-        }
-
-
       })
-
-    }, pause);
-
+    }
+  
+    let images = document.querySelectorAll('[data-src]');
+  
+    let options = {
+      root: null,
+      rootMargin: '0px 0px 50% 0px',
+      threshold: 0
+    }
+  
+    let observer = new IntersectionObserver( callback, options);
+  
+    images.forEach(function(image) {
+  
+    observer.observe(image);
+  
+    });
 
 }
+
+export default lazyLoad;
