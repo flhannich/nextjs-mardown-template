@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useEffect } from 'react'
 import { Header, Footer, Accessibility } from '../components'
 
-import { pageTransition } from '../utils/helpers'
+import { pageTransition, scrollTrigger, lazyLoad } from '../utils/helpers'
 
 const DefaultLayout = ({
     children,
@@ -15,7 +15,9 @@ const DefaultLayout = ({
     
       
     useEffect(() => {
+      lazyLoad()
       pageTransition()
+      scrollTrigger('[data-scroll]')
     }, []);
 
   return (
