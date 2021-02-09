@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Header, Footer } from '../components'
+import { Header, Footer, Accessibility } from '../components'
 
 const DefaultLayout = ({
     children,
@@ -25,10 +25,14 @@ const DefaultLayout = ({
         <meta property="og:locale" content="de-DE" />
 
       </Head>
-
+      
+      <Accessibility 
+        anchor={'mainContent'}
+      />
+      
       <Header />
 
-      <main>{children}</main>
+      <main id="mainContent">{children}</main>
 
       <Footer siteContacts = {siteContacts} />
 
