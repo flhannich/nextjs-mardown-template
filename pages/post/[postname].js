@@ -1,10 +1,12 @@
+import {useEffect} from 'react'
 import Link from 'next/link'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
-import Image from '@components/Image'
-import Layout from '@components/Layout'
-import getSlugs from '@utils/getSlugs'
+import { Image } from '../../components'
+import { DefaultLayout } from '../../layouts'
+import getSlugs from '../../utils/getSlugs'
+
 
 export default function BlogPost ({
     siteTitle,
@@ -14,11 +16,13 @@ export default function BlogPost ({
     markdownBody
   }) {
 
+
+  
   if (!frontmatter) return <></>
 
   return (
     <>
-      <Layout
+      <DefaultLayout
         pageTitle={frontmatter.title}
         pageDescription={frontmatter.description}
         pageImage={frontmatter.image}
@@ -40,9 +44,11 @@ export default function BlogPost ({
                 alt={frontmatter.title}
               />
             )}
-            <div class="grid">
+            <div className="grid">
+              
             <article className="small-12 medium-8 large-6 large-push-1 medium-push-1 small-push-0 pa5">
               <ReactMarkdown
+                allowDangerousHtml={true}
                 source={markdownBody}
                 renderers={{ image: Image }}
               />
@@ -53,7 +59,7 @@ export default function BlogPost ({
 
         </article>
 
-      </Layout>
+      </DefaultLayout>
 
     </>
   )
