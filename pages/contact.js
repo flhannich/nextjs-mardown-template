@@ -2,9 +2,9 @@ import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import matter from 'gray-matter'
 
-import Layout from '@components/Layout'
-import Image from '@components/Image'
-import getSlugs from '@utils/getSlugs'
+import { DefaultLayout } from '../layouts'
+import { Image } from '../components'
+import getSlugs from '../utils/getSlugs'
 
 const Contact = ({
     siteTitle,
@@ -16,7 +16,7 @@ const Contact = ({
 
   return (
     <>
-      <Layout
+      <DefaultLayout
         pageTitle={frontmatter.title}
         pageDescription={frontmatter.description}
         pageImage={frontmatter.image}
@@ -44,7 +44,7 @@ const Contact = ({
 
         </div>
 
-      </Layout>
+      </DefaultLayout>
     </>
   )
 }

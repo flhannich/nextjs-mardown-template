@@ -33,6 +33,7 @@ const Index = ({
 
         <article>
           <ReactMarkdown
+            allowDangerousHtml={true}
             source={markdownBody}
             renderers={{ image: Image }}
           />
