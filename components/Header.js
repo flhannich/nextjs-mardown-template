@@ -1,31 +1,39 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 const Header = () => {
   
   const node = useRef();
   
+  const [location, setLocation] = useState('')
+  
   let lastScroll = 0;
-
+  
+  
   useEffect(() => {
-
+    
+    setLocation(window.location.pathname.split('/')[1])
+    getScrollState();
+    
+  }, []);
+  
+  
+  const getScrollState = () => {
     let tick = false;
 
     document.addEventListener('scroll', function(e) {
       if (!tick) {
         window.requestAnimationFrame(function() {
-          setState ()
+          setScrollState ()
           tick = false;
         });
         tick = true;
       }
     });
-    
-  }, []);
+  }
   
-
-
-  const setState = () => {
+  
+  const setScrollState = () => {
     
     let header = node.current;
     
@@ -66,20 +74,20 @@ const Header = () => {
 
           <nav className="nav" role="navigation" aria-label="main navigation">
 
-            <Link href="/">
-              <a>Home</a>
+            <Link href="/" >
+              <a className={location == '' ? 'is-active' : ''}>Home</a>
             </Link>
 
-            <Link href="/about">
-              <a>About</a>
+            <Link href="/about" >
+              <a className={location == 'about' ? 'is-active' : ''}>About</a>
             </Link>
             
             <Link href="/blog">
-              <a>Blog</a>
+              <a className={location == 'blog' ? 'is-active' : ''}>Blog</a>
             </Link>
 
             <Link href="/contact">
-              <a>Contact</a>
+              <a className={location == 'contact' ? 'is-active' : ''}>Contact</a>
             </Link>
 
           </nav>
