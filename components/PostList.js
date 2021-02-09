@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import ReactMarkdown from 'react-markdown'
 
 const PostList = ({ posts }) => {
 
@@ -17,7 +16,7 @@ const PostList = ({ posts }) => {
 
                 {post.frontmatter.date}: {` `}
 
-                <Link href={{ pathname: `/post/${post.slug}` }}>
+                <Link href={{ pathname: `/posts/${post.slug}` }}>
 
                   <a>{post.frontmatter.title}</a>
 

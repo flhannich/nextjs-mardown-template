@@ -85,11 +85,11 @@ export async function getStaticProps({ ...ctx }) {
 
 export async function getStaticPaths() {
 
-  const blogSlugs = ((context) => {
+  const slugs = ((context) => {
     return getSlugs(context)
   })(require.context('../../md/posts', true, /\.md$/))
 
-  const paths = blogSlugs.map((slug) => `/post/${slug}`)
+  const paths = slugs.map((slug) => `/posts/${slug}`)
 
   return {
     paths, // An array of path names, and any params
