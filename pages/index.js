@@ -2,7 +2,7 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 
 import { DefaultLayout } from '../layouts/'
-import { PostList, Image } from '../components/'
+import { ProjectList, Image } from '../components/'
 
 import getPosts from '../utils/getPosts'
 
@@ -12,7 +12,7 @@ const Index = ({
     siteContacts,
     frontmatter,
     markdownBody,
-    posts
+    projects
   }) => {
 
   return (
@@ -28,7 +28,7 @@ const Index = ({
       <div className="container">
 
         <main>
-          <PostList posts={posts} />
+          <ProjectList projects={projects} />
         </main>
 
         <article>
@@ -54,13 +54,13 @@ export async function getStaticProps() {
   const config = await import(`../siteconfig.json`)
   const data = matter(content.default)
 
-  const posts = ((context) => {
+  const projects = ((context) => {
     return getPosts(context)
-  })(require.context('../md/posts', true, /\.md$/))
+  })(require.context('../md/projects', true, /\.md$/))
 
   return {
     props: {
-      posts,
+      projects,
       siteTitle: config.title,
       siteDescription: config.description,
       siteContacts: config.contact,
