@@ -22,6 +22,14 @@ const Footer = ({siteContacts}) => {
             <Link href="/contact">
               <a>Contact</a>
             </Link>
+            
+            <Link href="/legals/impress">
+              <a>Impress</a>
+            </Link>
+            
+            <Link href="/legals/privacy">
+              <a>Privacy</a>
+            </Link>
 
           </nav>
 
