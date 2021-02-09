@@ -4,18 +4,12 @@ import Link from 'next/link';
 const Header = () => {
   
   const node = useRef();
-
   
-  let tick = false;
   let lastScroll = 0;
-  
-  let classScrollsTop = 'is-scrolling--up';
-  let classScrollsDown = 'is-scrolling';
-  
-  let offset = 100;
 
-  
   useEffect(() => {
+
+    let tick = false;
 
     document.addEventListener('scroll', function(e) {
       if (!tick) {
@@ -30,23 +24,33 @@ const Header = () => {
   }, []);
   
 
+
   const setState = () => {
     
     let header = node.current;
     
-    let scrollY = window.pageYOffset || document.documentElement.scrollTop;
+    let classScrollsTop = 'is-scrolling--up';
+    let classScrollsDown = 'is-scrolling';
+    
+    let offset = 100;
 
-    (scrollY <= Math.max(lastScroll, 0))
+    if(header !== null) {
 
-      ? header.classList.add(classScrollsTop)
-      : header.classList.remove(classScrollsTop);
+      let scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-    (window.pageYOffset > offset)
+      (scrollY <= Math.max(lastScroll, 0))
 
-      ? header.classList.add(classScrollsDown)
-      : header.classList.remove(classScrollsDown, classScrollsTop);
+        ? header.classList.add(classScrollsTop)
+        : header.classList.remove(classScrollsTop);
 
-    lastScroll = scrollY;
+      (window.pageYOffset > offset)
+
+        ? header.classList.add(classScrollsDown)
+        : header.classList.remove(classScrollsDown, classScrollsTop);
+
+      lastScroll = scrollY;
+      
+    }
 
   }
   
